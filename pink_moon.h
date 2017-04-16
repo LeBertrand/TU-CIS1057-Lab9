@@ -17,7 +17,8 @@ int year_markers[] = { 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 202
 int day_markers[] = { 18, 6, 25, 15, 4, 22, 11, 30, 19, 8, };
 int time_markers[] = { 244, 1919, 1957, 742, 1206, 524, 608, 58, 1112, 235, };
 char *day_of_week_markers[] = { "Mon", "Fri", "Thu", "Tue", "Sat", "Fri", "Tue", "Mon", "Fri", "Sat", };
-const char* INVLD_RSP_MSG = "Please choose a resonse listed above.";
+const char* INVLD_RSP_MSG = "Please choose a response listed above.";
+const int num_years = sizeof year_markers/ sizeof year_markers[0];
 
 void copy_char_list(char[], char[], int);
 void copy_int_list(int[], int[], int);
@@ -48,11 +49,9 @@ void indirect_selection_sort_char(int lookups[], char respect_to[], const int le
     respect_to is in order,	so that later swaps move what we expect*/
     char respect_to_sorted[length];
     copy_char_list(respect_to, respect_to_sorted, length);
-	for(index = 0; index < 4; index++){
+	for(index = 0; index < length; index++){
         lookups[index] = index;
-		printf("%c ", respect_to_sorted[index]);
 	}
-	puts("");
     //setup complete...enter true sorting loop
     for( sorted_until = 0; sorted_until < length; sorted_until++){
         //hold place of smallest item so far
@@ -94,13 +93,9 @@ void indirect_selection_sort_int(int lookups[], int respect_to[], const int leng
     respect_to is in order,	so that later swaps move what we expect*/
     int respect_to_sorted[length];
     copy_int_list(respect_to, respect_to_sorted, length);
-	for(index = 0; index < 4; index++){
+	for(index = 0; index < length; index++){
         lookups[index] = index;
-		printf("%d ", respect_to_sorted[index]);
 	}
-	puts("");
-
-
 
     //setup complete...enter true sorting loop
     for( sorted_until = 0; sorted_until < length; sorted_until++){
@@ -172,7 +167,6 @@ void swap_ints(int* first_listing, int* second_listing)
         int holder = * second_listing;
         * second_listing = * first_listing;
         * first_listing = holder;
-        printf("Moving %d and %d.\n", *second_listing, *first_listing);
     }
 }
 
@@ -192,9 +186,26 @@ void swap_chars( char* first_listing, char* second_listing)
         char holder = * second_listing;
         * second_listing = * first_listing;
         * first_listing = holder;
-        printf("Moving %c and %c.\n", *second_listing, * first_listing);
     }
 }
 
-
+/*
+ * Function:	reverse_int_list
+ * Programmer:	Shmuel Jacobs
+ * Date:	April 16
+ * Input:	int_list - list of integers
+            length - number of items in list
+ * Outputs:	int_list
+ * Returns: none
+ * Globals:	none
+ * Description:	Reverse the order of input list
+ */
+ void reverse_int_list(int int_list[], int length)
+ {
+     int index;
+        //reverse current order
+        for(index = 0; index < length/2 ; index++){
+            swap_ints( &int_list[index], &int_list[length - index - 1]);
+        }
+ }
 #endif
