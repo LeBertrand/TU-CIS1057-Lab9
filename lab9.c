@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "parallel_array_sort.h"
+#include "pink_moon.h"
 
 int
 main()
