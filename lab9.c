@@ -60,3 +60,21 @@ main()
 
     return EXIT_SUCCESS;
 }
+
+/*
+ * Function:	prompt_category
+ * Programmer:	Shmuel Jacobs
+ * Date:	April 16
+ * Input:	none
+ * Outputs:	none
+ * Returns: two digit code - first digit for ascending/descending
+            second digit for category
+ * Globals:	none
+ * Description:	Ask user to how to sort the lists and return response,
+                encoded in two digit number
+ */
+int prompt_category()
+{
+    int response;
+    puts("How do you want to see the data sorted?");
+}
