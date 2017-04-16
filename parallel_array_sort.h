@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 /*
+ * Header for Lab9.c
  * Take four parallel arrays, which list respectively, years, day of April,
  * time of day and day of the week. This set of four arrays represent time and date
  * of appearance of pink moon. Allow user to sort by year, date, or time.
@@ -22,14 +23,13 @@ void swap_chars(char*, char*);
  * Function:	indirect_selection_sort_char
  * Programmer:	Shmuel Jacobs
  * Date:	April 14
- * Input:	respect_to - list of values to form the basis of new sort
+ * Input:	respect_to - list of chars to form the basis of new sort
             length - number of pink moons listed
- * Outputs:	lookups - order in which items in lists should be after sort
+ * Outputs:	lookups - ordinal value of items in matching places in respect_to
  * Returns: none
  * Globals:	none
- *			CHANNEL_SLOPE	-	slope of channel stated rise over run
- * Desription:	Given a channel depth, calculate cubic feet per second
- * of water flowing through.
+ * Description:	Given an array of values, fill an array of indexes
+                to indicate the appropriate order elements of the first.
  */
 void indirect_selection_sort_char(int lookups[], char respect_to[], const int length)
 {
@@ -65,6 +65,18 @@ void indirect_selection_sort_char(int lookups[], char respect_to[], const int le
     }
 }
 
+/*
+ * Function:	indirect_selection_sort_char
+ * Programmer:	Shmuel Jacobs
+ * Date:	April 14
+ * Input:	respect_to - list of chars to form the basis of new sort
+            length - number of pink moons listed
+ * Outputs:	lookups - ordinal value of items in matching places in respect_to
+ * Returns: none
+ * Globals:	none
+ * Description:	Given an array of values, fill an array of indexes
+                to indicate the appropriate order elements of the first.
+ */
 void indirect_selection_sort_int(int lookups[], int respect_to[], const int length)
 {
     //The sublist containing all indices less than this number is sorted
@@ -101,6 +113,17 @@ void indirect_selection_sort_int(int lookups[], int respect_to[], const int leng
     }
 }
 
+/*
+ * Function:	copy_char_list
+ * Programmer:	Shmuel Jacobs
+ * Date:	April 14
+ * Input:	copy_from - list of characters to copy
+ * Outputs:	copy_to - copy of the input list
+ * Returns: none
+ * Globals:	none
+ * Description:	Copy a list of characters from the input list
+                to the output list.
+ */
 void copy_char_list(char copy_from[], char copy_to[], const int length)
 {
     int index;
@@ -109,6 +132,17 @@ void copy_char_list(char copy_from[], char copy_to[], const int length)
     }//copy now ready
 }
 
+/*
+ * Function:	copy_int_list
+ * Programmer:	Shmuel Jacobs
+ * Date:	April 14
+ * Input:	copy_from - list of integers to copy
+ * Outputs:	copy_to - copy of the input list
+ * Returns: none
+ * Globals:	none
+ * Description:	Copy a list of integers from the input list
+                to the output list.
+ */
 void copy_int_list(int copy_from[], int copy_to[], const int length)
 {
     int index;
@@ -117,6 +151,16 @@ void copy_int_list(int copy_from[], int copy_to[], const int length)
     }//copy now ready
 }
 
+/*
+ * Function:	swap_ints
+ * Programmer:	Shmuel Jacobs
+ * Date:	April 14
+ * Input:	first_listing, second_listing - locations of values to swap
+ * Outputs:	first_listing, second_listing
+ * Returns: none
+ * Globals:	none
+ * Description:	Swap the locations of two integers.
+ */
 void swap_ints(int* first_listing, int* second_listing)
 {
     if(first_listing != second_listing){
@@ -127,6 +171,16 @@ void swap_ints(int* first_listing, int* second_listing)
     }
 }
 
+/*
+ * Function:	swap_chars
+ * Programmer:	Shmuel Jacobs
+ * Date:	April 14
+ * Input:	first_listing, second_listing - locations of values to swap
+ * Outputs:	first_listing, second_listing
+ * Returns: none
+ * Globals:	none
+ * Description:	Swap the locations of two characters.
+ */
 void swap_chars( char* first_listing, char* second_listing)
 {
     if(first_listing != second_listing){
