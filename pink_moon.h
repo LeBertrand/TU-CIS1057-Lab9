@@ -81,7 +81,7 @@ void indirect_selection_sort_char(int lookups[], char respect_to[], const int le
  * Description:	Given an array of values, fill an array of indexes
                 to indicate the appropriate order elements of the first.
  */
-void indirect_selection_sort_int(int lookups[], int respect_to[], const int length)
+void sort_parallel_arrays(int lookups[], int respect_to[], const int length)
 {
     //The sublist containing all indices less than this number is sorted
     int sorted_until;

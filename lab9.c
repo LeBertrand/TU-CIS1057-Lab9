@@ -19,26 +19,30 @@ void print_full_table( int lookups[], int year[], int day[], int time[], char **
 int
 main()
 {
-	//ask user how to sort list
-	int cat = prompt_category();
+    //ask user how to sort list
+    int cat = prompt_category();
+    //as long as user didn't choose to quit
+    while(cat!=4){
+		//sort list
+	    int order_of_access[10];
+	    switch(cat)
+	    {
+	        case 1: sort_parallel_arrays(order_of_access, year_markers, num_years); break;
+	        case 2: sort_parallel_arrays(order_of_access, day_markers, num_years); break;
+	        case 3: sort_parallel_arrays(order_of_access, time_markers, num_years); break;
+	    }
 
-	//sort list
-    int order_of_access[10];
-    switch(cat)
-    {
-        case 1: indirect_selection_sort_int(order_of_access, year_markers, num_years); break;
-        case 2: indirect_selection_sort_int(order_of_access, day_markers, num_years); break;
-        case 3: indirect_selection_sort_int(order_of_access, time_markers, num_years); break;
+	    //ask whether to list ascending or descending
+	    int up = ascending();
+	    if(!up){//user chose descending display
+	        reverse_int_list(order_of_access, 10);
+	    }
+
+	    print_full_table(order_of_access, year_markers, day_markers,
+	        time_markers, day_of_week_markers, 10);
+
+	    cat = prompt_category();
     }
-
-    //ask whether to list ascending or descending
-    int up = ascending();
-    if(!up){//user chose descending display
-        reverse_int_list(order_of_access, 10);
-    }
-
-    print_full_table(order_of_access, year_markers, day_markers,
-        time_markers, day_of_week_markers, 10);
 
     return EXIT_SUCCESS;
 }
