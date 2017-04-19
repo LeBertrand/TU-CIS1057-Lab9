@@ -19,17 +19,22 @@ void print_full_table( int lookups[], int year[], int day[], int time[], char **
 int
 main()
 {
+	//ask user how to sort list
 	int cat = prompt_category();
-    int order_of_access[10];
-    if(!ascending()){//user chose descending display
-        reverse_int_list(order_of_access, 10);
-    }
 
+	//sort list
+    int order_of_access[10];
     switch(cat)
     {
         case 1: indirect_selection_sort_int(order_of_access, year_markers, num_years); break;
         case 2: indirect_selection_sort_int(order_of_access, day_markers, num_years); break;
         case 3: indirect_selection_sort_int(order_of_access, time_markers, num_years); break;
+    }
+
+    //ask whether to list ascending or descending
+    int up = ascending();
+    if(!up){//user chose descending display
+        reverse_int_list(order_of_access, 10);
     }
 
     print_full_table(order_of_access, year_markers, day_markers,
@@ -83,12 +88,12 @@ int ascending()
         puts(INVLD_RSP_MSG);
         return ascending();
     }
-    return response == 1;
+    return (response == 1);
 }
 
 /*
  * Function:    print_full_table
- * Programmer:  Shmuel Jacobs
+ * Programmer:  Shmuel Jacobs (modified given function)
  * Date:    April 16
  * Input:   year, day, time, dow - parallel lists giving information
             regarding the same pink moon occurrences
@@ -108,7 +113,7 @@ void print_full_table( int lookups[], int year[], int day[], int time[], char **
         look = lookups[i];//choose the next lookup value from the array that's sorted correctly
         int hh = time[ look ] / 100;
         int mm = time[ look ] - hh * 100;
-        printf( "%d.  %s April %2d, %d at %2.2d:%2.2d.\n", i+1, dow[look], day[ look ], year[look], hh, mm );
+        printf( "%d.  %s April %2d, %d at %2.2d:%2.2d.\n", i+1, dow[ look ], day[ look ], year[ look ], hh, mm );
     }
 
     return;
